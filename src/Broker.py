@@ -43,7 +43,6 @@ class Broker:
 
     def CryptoSale(self):
         for id, amount in self.__walletDict.items():
-            print(id, amount)
             threshold = amount*FACTOR_EXCHANGE
 
             # get current price of crypto
