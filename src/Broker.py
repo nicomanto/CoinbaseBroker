@@ -21,6 +21,7 @@ FACTOR_EXCHANGE = 2
 class Broker:
 
     def __init__(self):
+        logger.info("Create broker")
         self.__client = Client(API_KEY, API_SECRET)
         self.UpdateWallet()
 
