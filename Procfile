@@ -1,1 +1,1 @@
-web: python3 src/main.py
+broker: python3 src/main.py
