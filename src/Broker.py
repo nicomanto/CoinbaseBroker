@@ -1,6 +1,7 @@
 
 from coinbase.wallet.client import Client
 import logging
+import os
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
