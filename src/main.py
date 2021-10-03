@@ -6,6 +6,7 @@ def main():
     broker = Broker()
 
     while(True):
+        print("test")
         broker.CryptoSale()
         broker.UpdateWallet()
         time.sleep(2.5)
