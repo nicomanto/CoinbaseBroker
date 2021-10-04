@@ -1,1 +1,0 @@
-broker: python3 src/main.py
