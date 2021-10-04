@@ -22,6 +22,7 @@ class Broker:
         # set threshold param
         self.__CURRENCY_EXCHANGE = 'EUR'
         self.__FACTOR_EXCHANGE = 2
+        # create wallet of crypto and buy price
         self.UpdateWallet()
 
     def UpdateWallet(self):
