@@ -59,7 +59,7 @@ class Broker:
                     try:
                         self.__client.commit_sell(id, create_sale.id)
                         logger.info(
-                            f'Sold {id} crypto for {threshold} {self.__CURRENCY_EXCHANGE}')
+                            f'Sold {threshold} {self.__CURRENCY_EXCHANGE} of {id} crypto')
                     except:
                         logger.warning(
-                            f'Failed to commit sell for {id} crypto')
+                            f'Failed to commit sell of {threshold} {self.__CURRENCY_EXCHANGE} {id} crypto')
