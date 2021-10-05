@@ -52,10 +52,10 @@ class Broker:
             # check is price is greather than threshold
             if(current_price_crypto > threshold):
                 create_sale = self.__client.sell(id, total=str(
-                    threshold), currency=self.__CURRENCY_EXCHANGE, commit=False)
+                   amount), currency=self.__CURRENCY_EXCHANGE, commit=False)
 
                 # check if total is equal to the threshold (check for fee)
-                if(float(create_sale.total.amount) == threshold):
+                if(float(create_sale.total.amount) == amount):
                     try:
                         self.__client.commit_sell(id, create_sale.id)
                         logger.info(
