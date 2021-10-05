@@ -47,7 +47,7 @@ class Broker:
 
             # get current price of crypto
             current_price_crypto = float(
-                self.__client.get_account(id).native_balance.amount)
+                self.__client.get_account(id).balance.amount)*float(self.__client.get_spot_price(currency_pair=f'{id}-{self.__CURRENCY_EXCHANGE}').amount)
 
             # check is price is greather than threshold
             if(current_price_crypto > threshold):
