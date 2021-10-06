@@ -44,7 +44,7 @@ class Broker:
 
                     # add last sell to amount because broker sell AMOUNT after it exceeds the AMOUNT*2, so AMOUNT remains in the wallet
                     if(not last_sell_found and trans.type == 'sell'):
-                        self.__walletDict[cryptoID] += -float(
+                        self.__walletDict[cryptoID] -= float(
                             trans.native_amount.amount)
                         last_sell_found = True
 
