@@ -1,8 +1,5 @@
 
 from coinbase.wallet.client import Client
-from dateutil import parser
-import datetime
-import pytz
 import logging
 import os
 
@@ -47,7 +44,8 @@ class Broker:
 
                     # if is present a sell, add desired earn because in the wallet remain desired earn
                     # check data after change broker logic, in order to not calculate sale before the day when logic change
-                    if(not last_sell_found and trans.type == 'sell' and parser.parse(trans.created_at) > datetime.datetime(year=2021, month=10, day=8, tzinfo=pytz.UTC)):
+                    # and parser.parse(trans.created_at) > datetime.datetime(year=2021, month=10, day=8, tzinfo=pytz.UTC)
+                    if(not last_sell_found and trans.type == 'sell'):
                         self.__walletDict[cryptoID] += self.__DESIRED_EARN
                         last_sell_found = True
 
