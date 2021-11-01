@@ -38,16 +38,16 @@ class Broker:
             last_sell_found = False
             for trans in self.__client.get_transactions(cryptoID).data:
                 if (trans.status == "completed"):
-                    # if transactions is a sell, the amount was negative
-                    self.__walletDict[cryptoID] += float(
-                        trans.native_amount.amount)
-
                     # if is present a sell, add desired earn because in the wallet remain desired earn
                     # check data after change broker logic, in order to not calculate sale before the day when logic change
                     # and parser.parse(trans.created_at) > datetime.datetime(year=2021, month=10, day=8, tzinfo=pytz.UTC)
                     if(not last_sell_found and trans.type == 'sell'):
                         self.__walletDict[cryptoID] += self.__DESIRED_EARN
                         last_sell_found = True
+                    else:
+                        # if transactions is a sell, the amount was negative
+                        self.__walletDict[cryptoID] += float(
+                            trans.native_amount.amount)
 
     def CryptoSale(self):
         for id, amount in self.__walletDict.items():
