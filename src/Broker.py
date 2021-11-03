@@ -63,7 +63,7 @@ class Broker:
                     amount), currency=self.__CURRENCY_EXCHANGE, commit=False)
 
             # check if total is equal to the amount (check for fee)
-                if(float(create_sale.total.amount) == amount):
+                if(float(create_sale.total.amount) == round(amount, 2)):
                     try:
                         self.__client.commit_sell(id, create_sale.id)
                         logger.info(
